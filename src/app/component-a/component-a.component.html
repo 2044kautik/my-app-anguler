@@ -1,0 +1,6 @@
+<h1>parent</h1>
+ 
+<div class="parent">
+<button class="btn btn-primary" (click)="callChild()">call child</button>
+<app-component-b #child [data]="parentData" (childClick)="parentFu($event)"></app-component-b>
+</div>

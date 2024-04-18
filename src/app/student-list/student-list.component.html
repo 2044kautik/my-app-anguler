@@ -1,0 +1,28 @@
+<h3>student-list </h3>
+<button class="btn btn-primary" (click)="toggleTable()"> show /hide table</button>
+<div class="mb-3">
+    <label for="searchByName" class="form-label">search</label>
+    <input class="form-control me-2" id="searchByName" placeholder="SearchByName" [(ngModel)]="searchByName"
+        (input)= "searchTableList()">
+</div>
+
+<table class="table" *ngIf="showList">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th (click)="Ascending()">Age</th>
+            <th>Email</th>
+            <th>Number</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of filterStudent ; let i= index" [ngClass]="i%2==0  ? 'even': 'odd' ">
+            <td>{{student.name}}</td>
+            <td>{{student.age}}</td>
+            <td>{{student.email}}</td>
+            <td>{{student.number}}</td>
+            <td><button class="btn btn-primary" (click)="deleteRow(i)"> deleteRow</button></td>
+        </tr>
+    </tbody>
+</table>
